@@ -1,0 +1,86 @@
+.glg_logo{
+  width: 75px;
+  height: 30px;
+}
+
+.default_background {
+  background-color: #eee;
+}
+
+.container {
+  max-width: 1133px;
+  margin: 0 auto;
+}
+
+.font_black{
+  color: black;
+}
+
+.debug_label {
+  display: grid;
+  grid-template-columns: 80% 10% 10%;
+  font-size: 12px;
+}
+
+.cm_cards_label {
+  background-color: #dc143c;
+  color: white;
+  width: 100%;
+  display:grid;
+  grid-template-columns: 2% 58% 15% 10%;
+}
+
+.cm_cards_name {
+  grid-column: 2 / span 1;
+}
+
+.cm_cards_iprojects {
+  grid-column: 4 / span 1;
+}
+
+.cm_cards_pprojects {
+  grid-column: 5 / span 1;
+}
+
+.cm_cards_grid {
+  display: grid;
+  grid-template-columns:  25% 25% 10% 15% 10%;
+  grid-template-rows: 10% 80% 10%;
+}
+
+.cm_cards_rm {
+  grid-column: 5 / span 1;
+}
+
+.cm_cards_expiration {
+  grid-column: 1 / span 2;
+}
+
+.cm_cards_assignedRm {
+  grid-column: 6 / span 1;
+}
+
+.cm_cards_bio {
+  grid-column: 1 / span 6;
+  background-color: #eee;
+}
+
+.cm_cards_action {
+  grid-column: 6 / span 1; 
+}
+
+.cm_cards_TC {
+  color: blue;
+}
+
+.cm_cards_weChat {
+  width: 14px;
+  height: 14px;
+}
+
+.cm_cards_content {
+  position: relative;
+  padding-bottom: 90%;
+  width: 96%;
+  height: 90%;
+}
