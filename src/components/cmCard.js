@@ -79,7 +79,9 @@ class CmCard extends Component {
     this.setState({ selectedOption });
     this.state.assingedRmId = selectedOption.value;
     this.state.assingedRm = selectedOption.label;
-    this.props.store.rmStore.upsertAssignRM(this.state.assignedCmId, this.state.assingedRmId);
+    this.props.store.rmStore.upsertAssignRM(this.state.assignedCmId,
+                                            this.state.assingedRmId,
+                                            this.props.store.appStore.currentUserId);
     this.handleAssign();
   }
 
@@ -141,7 +143,7 @@ class CmCard extends Component {
                   options={rms}
                   clearable={false}
                   /></div>
-                : <div className="cm_cards_assignedRm" onClick={this.handleAssign}>{ cm.assignedTo } <MdPersonAdd /></div>)
+                : <div className="cm_cards_assignedRm" onClick={this.handleAssign}><MdPersonAdd /></div>)
               : ((this.state.assignmentSwitch) 
                   ? <div className="cm_cards_assignedRm">
                     <Select                   
@@ -166,7 +168,7 @@ class CmCard extends Component {
           placement="top"
           overlay={ popoverEmailTC }
         >
-          <span className="cm_cards_TC" bsStyle="primary" onClick={this.openEmailModal}><MdEmail /> </span>
+          <span className="cm_cards_TC" onClick={this.openEmailModal}><MdEmail /> </span>
         </OverlayTrigger>
           <Modal
             show={this.state.emailModalIsOpen}
@@ -187,7 +189,7 @@ class CmCard extends Component {
           placement="top"
           overlay={ popoverSMS }
         >
-          <span bsStyle="primary" onClick={this.openSMSModal}><MdSms /> </span>
+          <span onClick={this.openSMSModal}><MdSms /> </span>
         </OverlayTrigger>
           <Modal
             show={this.state.smsModalIsOpen}
@@ -208,7 +210,7 @@ class CmCard extends Component {
           placement="top"
           overlay={ popoverWechat }
         >
-          <span bsStyle="primary" onClick={this.openWechatModal}><img src={ WeChatInvited } className="cm_cards_weChat" /> </span> 
+          <span onClick={this.openWechatModal}><img src={ WeChatInvited } className="cm_cards_weChat" /> </span> 
         </OverlayTrigger>
           <Modal
             show={this.state.wechatModalIsOpen}

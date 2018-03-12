@@ -18,8 +18,12 @@
 
 .debug_label {
   display: grid;
-  grid-template-columns: 80% 10% 10%;
+  grid-template-columns: 74.5% 9.5% 8.5% 7.5%;
   font-size: 12px;
+}
+
+.debug_label_filter {
+  grid-column: 4 / span 1;
 }
 
 .cm_cards_label {

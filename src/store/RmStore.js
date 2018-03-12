@@ -20,7 +20,23 @@ class RmStore {
         })
       },
 
-      upsertAssignRM: (cmId, rmId) => {
+      upsertAssignRM: (cmId, rmId, loginRm) => {
+        let url = `tc_expiration\\upsertAssignment.mustache`
+        let data =  {
+          "cmIDs": cmId,
+          "recruiterUID": rmId,
+          "updatedBy": loginRm
+        }
+        return post (`${url}`, data)
+          .then(() => {
+            return true
+          }
+        )
+        .catch(() => {
+          return 'failed to assign.'
+        })
+
+
         console.log('cmId, rmId', cmId, rmId)
       }
 
