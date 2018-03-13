@@ -39,7 +39,7 @@ class SMS extends Component {
             body: this.state.content
         }
           
-        this.state.smsSent = this.props.store.smsStore.sendSMS(payload)
+        this.setState({smsSent: this.props.store.smsStore.sendSMS(payload)})
       }
 
     selectOnchange(e) {

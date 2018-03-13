@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react'
 import compose from 'lodash/fp/compose'
 import { Panel, Button } from 'muicss/react'
-import { MdSms, MdEmail, MdPersonAdd, MdAdd } from 'react-icons/lib/md'
+import { MdSms, MdEmail, MdPersonAdd, MdAdd, MdPortrait } from 'react-icons/lib/md'
 import WeChatInvited from '../images/WeChat_Invited.svg'
 import WeChatNotInvited from '../images/WeChat_Not.svg'
 
@@ -125,7 +125,7 @@ class CmCard extends Component {
     return (<div>
       <Panel>
       <div className="cm_cards_label">
-        <span className="cm_cards_name">{ cm.cmFullname}</span>
+        <span className="cm_cards_name" >{ cm.cmFullname} <a href={ `https://services.glgresearch.com/advisors/#/cm/${cm.councilMemberId}` }  target="_blank"><MdPortrait/></a></span>
         <span className="cm_cards_iprojects">Invited:{ cm.invitedProjects}</span>
         <span className="cm_cards_pprojects">Paid:{ cm.paidCalledProjects }</span>
       </div>

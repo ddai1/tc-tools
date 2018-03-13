@@ -35,9 +35,6 @@ class RmStore {
         .catch(() => {
           return 'failed to assign.'
         })
-
-
-        console.log('cmId, rmId', cmId, rmId)
       }
 
 

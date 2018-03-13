@@ -21,9 +21,7 @@ startRouter(views, store)
 ReactDOM.render(
   <Provider store={store}>
       <div>
-          <section>
-            <MobxRouter/>
-          </section>
+          <MobxRouter/>          
       </div>
   </Provider>, document.getElementById('root'));
 registerServiceWorker();

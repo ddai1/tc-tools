@@ -12,7 +12,10 @@ const views = {
     path:'/',
     component: <CmList/> 
   }),
-
+  wrongPath: new Route({
+    path: '/:any',
+    component: <CmList/>
+  })
 }
 
 export default views
