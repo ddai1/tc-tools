@@ -12,6 +12,7 @@ class SMS extends Component {
         super();
 
         this.state={
+            cmId:'',
             mobile:'',
             content:'',
             smsSent: false,
@@ -34,7 +35,8 @@ class SMS extends Component {
     sendSMS() {
         var payload = {
             to: {
-                mobile: this.state.mobile
+                cmId: this.props.cmId,
+                mobile: this.state.mobile.replace(/[^\+\d]/g, '')
             },
             body: this.state.content
         }
@@ -44,10 +46,11 @@ class SMS extends Component {
 
     selectOnchange(e) {
         this.setState({ selectedOption: e.target.value });
+        this.setState({mobile: e.target.value})
     }
 
     render() {
-        const { cmnumbers } = this.props
+        const { cmnumbers, cmId } = this.props
 
         // TODO: cannot use map index, odd. error says: return object.
 
@@ -71,7 +74,7 @@ class SMS extends Component {
                     <form>
                     <Radio label={ cmn[0] } value={ cmn[0] } onChange={this.selectOnchange} checked={ this.state.selectedOption === cmn[0] }/>
                     <Radio label={ cmn[1] } value={ cmn[1] } onChange={this.selectOnchange} checked={ this.state.selectedOption === cmn[1] }/>
-                    <Radio label={ cmn[2] } value={ cmn[3] } onChange={this.selectOnchange} checked={ this.state.selectedOption === cmn[2] }/>
+                    <Radio label={ cmn[2] } value={ cmn[2] } onChange={this.selectOnchange} checked={ this.state.selectedOption === cmn[2] }/>
                     </form>
                 )
               }
@@ -82,7 +85,7 @@ class SMS extends Component {
         <Container>
             {(cmnumbers.length > 0) ? <p>Please select one from below available number(s): </p>: <p>There is no available number for this CM, you may put the number manually if you have got the CM's email.</p>}
             {(cmnumbers.length > 0) ? <CmN cmn = { cmnumbers } /> : ''}
-            <Input label="Please Put correct Chinese Mobile number prefix with +86" floatingLabel={false} onChange={this.updateMobile} placeholder={ cmnumbers[0] } value={this.state.selectedOption}/>
+            <Input label="Please Put correct Chinese Mobile number prefix with +86" floatingLabel={false} onChange={this.updateMobile} placeholder={ cmnumbers[0] } value={this.state.mobile}/>
             <Input label="Please Put content here" floatingLabel={true} onChange={this.updateContent} />
             <Button color="danger" onClick={this.sendSMS}>Send</Button>
         </Container>);

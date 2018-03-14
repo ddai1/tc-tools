@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react'
 import compose from 'lodash/fp/compose'
-import { Panel, Button } from 'muicss/react'
-import { MdSms, MdEmail, MdPersonAdd, MdAdd, MdPortrait } from 'react-icons/lib/md'
+import { Panel } from 'muicss/react'
+import { MdSms, MdEmail, MdPersonAdd, MdPortrait } from 'react-icons/lib/md'
 import WeChatInvited from '../images/WeChat_Invited.svg'
-import WeChatNotInvited from '../images/WeChat_Not.svg'
+///import WeChatNotInvited from '../images/WeChat_Not.svg'
 
 // select assignemnt
 import Select from 'react-select'
@@ -200,7 +200,7 @@ class CmCard extends Component {
               <Modal.Title>Send SMS to CM</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <SMS cmnumbers={this.state.cmNumbers}/>
+              <SMS cmnumbers={this.state.cmNumbers} cmId={ cm.councilMemberId }/>
             </Modal.Body>  
 
           </Modal>
